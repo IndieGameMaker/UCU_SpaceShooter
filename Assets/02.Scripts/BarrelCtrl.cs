@@ -34,6 +34,6 @@ public class BarrelCtrl : MonoBehaviour
     {
         Rigidbody rb = this.gameObject.AddComponent<Rigidbody>();
         rb.AddForce(Vector3.up * 1800.0f);
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 2.0f);
     }
 }

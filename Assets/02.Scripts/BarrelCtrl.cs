@@ -39,6 +39,6 @@ public class BarrelCtrl : MonoBehaviour
 
         // 폭발 파티클 생성
         GameObject effect = Instantiate(expEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5.0f);
+        Destroy(effect, 4.0f);
     }
 }

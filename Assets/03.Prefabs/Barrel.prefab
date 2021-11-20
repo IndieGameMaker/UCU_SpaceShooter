@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2555398923847081223}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6904206, y: -0.02, z: 5.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -74,6 +74,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+  renderer: {fileID: 0}
+  textures:
+  - {fileID: 2800000, guid: e1f2b37b381e6d14a8a01ddd49a84a58, type: 3}
+  - {fileID: 2800000, guid: 0aa4112bfd022aa47919f151ba79ddc1, type: 3}
+  - {fileID: 2800000, guid: d38462a18d74e454aaf079b02bc753cd, type: 3}
 --- !u!1 &8056098688776093961
 GameObject:
   m_ObjectHideFlags: 0

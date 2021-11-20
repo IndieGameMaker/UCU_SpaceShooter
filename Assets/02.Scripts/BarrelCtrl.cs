@@ -16,6 +16,9 @@ public class BarrelCtrl : MonoBehaviour
 
     void Start()
     {
+        int idx = Random.Range(0, textures.Length); // (0, 3) => 0,1,2
+        renderer.material.mainTexture = textures[idx];
+
         renderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
     }
 

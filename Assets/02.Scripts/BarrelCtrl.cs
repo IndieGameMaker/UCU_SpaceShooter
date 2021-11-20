@@ -16,10 +16,11 @@ public class BarrelCtrl : MonoBehaviour
 
     void Start()
     {
+        renderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
+
+        // 텍스처를 랜덤하게 추출
         int idx = Random.Range(0, textures.Length); // (0, 3) => 0,1,2
         renderer.material.mainTexture = textures[idx];
-
-        renderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
     }
 
     void OnCollisionEnter(Collision coll)

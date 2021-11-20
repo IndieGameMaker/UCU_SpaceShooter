@@ -52,6 +52,18 @@ public class PlayerCtrl : MonoBehaviour
         {
             anim.CrossFade("RunB", 0.3f); // 후진 애니메이션
         }
+        else if (h >= 0.1f)
+        {
+            anim.CrossFade("RunR", 0.3f); // 오른쪽 
+        }
+        else if (h <= -0.1f)
+        {
+            anim.CrossFade("RunL", 0.3f); // 왼쪽
+        }
+        else
+        {
+            anim.CrossFade("Idle", 0.3f);
+        }
     }
 
 }

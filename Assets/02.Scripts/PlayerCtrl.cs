@@ -11,7 +11,17 @@ public class PlayerCtrl : MonoBehaviour
     void Start()
     {
         // Animation 컴포넌트 추출
-        anim = GetComponent<Animation>();
+        anim = GetComponent<Animation>(); //제너릭 문법
+        //anim = GetComponent("Animation") as Animation;
+        anim.Play("Idle");
+
+        /*
+        메소드(함수)
+        객체.대문자(인자);
+
+        프로퍼티(속성)
+        객체.소문자 = 값;
+        */
     }
 
     // 화면을 렌더링하는 주기

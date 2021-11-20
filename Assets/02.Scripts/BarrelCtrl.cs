@@ -1,18 +1,39 @@
+#pragma warning disable IDE0051
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BarrelCtrl : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private int hitCount;
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.collider.CompareTag("BULLET"))
+        {
+            if (++hitCount == 3)
+            {
+                ExpBarrel();
+            }
+            /*
+            hitCount = hitCount + 1;
+            if (hitCount == 3)
+            {
+            }
+            */
+        }
+    }
+
+    void ExpBarrel()
     {
 
     }
+
+
 }

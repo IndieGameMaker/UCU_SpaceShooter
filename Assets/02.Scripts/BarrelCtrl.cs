@@ -12,6 +12,8 @@ public class BarrelCtrl : MonoBehaviour
     [SerializeField]
     private new MeshRenderer renderer;
 
+    public Texture[] textures;
+
     void Start()
     {
         renderer = this.gameObject.GetComponentInChildren<MeshRenderer>();

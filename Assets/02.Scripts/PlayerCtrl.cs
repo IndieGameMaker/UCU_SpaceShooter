@@ -36,6 +36,22 @@ public class PlayerCtrl : MonoBehaviour
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
         transform.Translate(moveDir.normalized * Time.deltaTime * moveSpeed);
         transform.Rotate(Vector3.up * Time.deltaTime * r * 80.0f);
+
+        PlayerAnimation(h, v);
+    }
+
+    // Player Animation 처리 로직
+    void PlayerAnimation(float h, float v)
+    {
+        // 전진/후진
+        if (v >= 0.1f)
+        {
+            anim.CrossFade("RunF", 0.3f); // 전진 애니메이션
+        }
+        else if (v <= -0.1f)
+        {
+            anim.CrossFade("RunB", 0.3f); // 후진 애니메이션
+        }
     }
 
 }

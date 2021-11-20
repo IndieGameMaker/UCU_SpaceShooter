@@ -36,5 +36,9 @@ public class BarrelCtrl : MonoBehaviour
         Rigidbody rb = this.gameObject.AddComponent<Rigidbody>();
         rb.AddForce(Vector3.up * 1800.0f);
         Destroy(this.gameObject, 2.0f);
+
+        // 폭발 파티클 생성
+        GameObject effect = Instantiate(expEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 5.0f);
     }
 }

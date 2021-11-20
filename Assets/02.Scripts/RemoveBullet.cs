@@ -22,7 +22,9 @@ public class RemoveBullet : MonoBehaviour
             // 법선 벡터가 이루는 각도를 쿼터니언 타입으로 변환
             Quaternion rot = Quaternion.LookRotation(-1 * _normal);
             // 스파크 이펙트 생성
-            Instantiate(sparkEffect, pos, rot);
+            GameObject spark = Instantiate(sparkEffect, pos, rot);
+            //
+            Destroy(spark, 0.5f);
         }
     }
 }

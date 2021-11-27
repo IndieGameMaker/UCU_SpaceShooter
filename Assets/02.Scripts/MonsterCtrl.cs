@@ -36,7 +36,7 @@ public class MonsterCtrl : MonoBehaviour
         playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        
+
         StartCoroutine(CheckState());
         StartCoroutine(MonsterAction());
     }
@@ -73,11 +73,13 @@ public class MonsterCtrl : MonoBehaviour
             {
                 case State.IDLE:
                     agent.isStopped = true;
+                    anim.SetBool("IsTrace", false); // Walk -> Idle
                     break;
 
                 case State.TRACE:
                     agent.SetDestination(playerTr.position);
                     agent.isStopped = false;
+                    anim.SetBool("IsTrace", true); // Idle -> Walk
                     break;
 
                 case State.ATTACK:

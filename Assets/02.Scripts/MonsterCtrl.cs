@@ -30,6 +30,8 @@ public class MonsterCtrl : MonoBehaviour
     {
         monsterTr = GetComponent<Transform>();
         playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
+
+        StartCoroutine(CheckState());
     }
 
     IEnumerator CheckState()

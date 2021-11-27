@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class MonsterCtrl : MonoBehaviour
 {
+    // 열거형 변수 정의
+    public enum State
+    {
+        IDLE, TRACE, ATTACK, DIE
+    }
+    // 몬스터의 상태
+    public State state = State.IDLE;
+
+    [System.NonSerialized] //C#
     public Transform monsterTr;
+    [HideInInspector]  //UnityEngine
     public Transform playerTr;
 
     void Start()

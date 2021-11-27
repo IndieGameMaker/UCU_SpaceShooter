@@ -25,7 +25,7 @@ public class MonsterCtrl : MonoBehaviour
     [HideInInspector]  //UnityEngine
     public Transform playerTr;
 
-
+    private NavMeshAgent agent;
 
     public bool isDie = false;
 
@@ -33,6 +33,7 @@ public class MonsterCtrl : MonoBehaviour
     {
         monsterTr = GetComponent<Transform>();
         playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
+        agent = GetComponent<NavMeshAgent>();
 
         StartCoroutine(CheckState());
         StartCoroutine(MonsterAction());
@@ -69,14 +70,18 @@ public class MonsterCtrl : MonoBehaviour
             switch (state)
             {
                 case State.IDLE:
-                    Debug.Log("아이들링");
+                    agent.isStopped = true;
                     break;
+
                 case State.TRACE:
-                    Debug.Log("추적");
+                    agent.SetDestination(playerTr.position);
+                    agent.isStopped = false;
                     break;
+
                 case State.ATTACK:
                     Debug.Log("공격");
                     break;
+
                 case State.DIE:
                     break;
             }

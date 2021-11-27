@@ -57,6 +57,10 @@ public class FireCtrl : MonoBehaviour
         //[컴포넌트].transform
         renderer.transform.localRotation = Quaternion.Euler(Vector3.forward * angle);
 
+        // 스케일 변경
+        float scale = Random.Range(1.0f, 3.0f);
+        renderer.transform.localScale = Vector3.one * scale; // new Vector3(scale, scale, scale);
+
         // MuzzleFlash 활성화
         renderer.enabled = true;
         

@@ -34,6 +34,9 @@ public class MonsterCtrl : MonoBehaviour
     private int hashAttack;
     private int hashHit;
 
+    // 몬스터의 HP
+    private float hp = 100.0f;
+
     void Start()
     {
         // Animator View의 HashTable의 Hash 값을 미리 추출

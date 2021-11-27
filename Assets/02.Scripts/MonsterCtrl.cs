@@ -57,6 +57,8 @@ public class MonsterCtrl : MonoBehaviour
     {
         while (isDie == false)
         {
+            if (state == State.DIE) yield break;
+
             // 두 3차원 좌표간의 거리를 측정
             float distance = Vector3.Distance(monsterTr.position, playerTr.position);
 
@@ -101,6 +103,9 @@ public class MonsterCtrl : MonoBehaviour
                     break;
 
                 case State.DIE:
+                    isDie = true;
+                    agent.isStopped = true;
+                    anim.SetTrigger("Die");
                     break;
             }
 
@@ -114,6 +119,14 @@ public class MonsterCtrl : MonoBehaviour
         {
             Destroy(coll.gameObject); // 총알을 삭제
             anim.SetTrigger(hashHit);
+
+            hp -= 20.0f;
+            if (hp <= 0.0f)
+            {
+                state = State.DIE;
+            }
         }
     }
+
+
 }

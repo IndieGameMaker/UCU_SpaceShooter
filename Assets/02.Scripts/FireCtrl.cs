@@ -8,11 +8,15 @@ public class FireCtrl : MonoBehaviour
     public Transform firePos;
     public AudioClip fireSfx;
 
+    [SerializeField]
+    private new MeshRenderer renderer;
     private new AudioSource audio;
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        // MuzzleFlash에 있는 MeshRenderer 컴포넌트를 할당
+        renderer = firePos.GetComponentInChildren<MeshRenderer>();
     }
 
     // 매 프레임 마다 호출되는 메소드(함수)

@@ -5,15 +5,24 @@ using UnityEngine;
 public class PlayerCtrl : MonoBehaviour
 {
     public float moveSpeed = 10.0f;
+    public float turnSpeed = 80.0f;
+
+    private float _turnSpeed;
+
     private Animation anim;
 
     // 1회 호출되는 함수
-    void Start()
+    IEnumerator Start()
     {
         // Animation 컴포넌트 추출
         anim = GetComponent<Animation>(); //제너릭 문법
         //anim = GetComponent("Animation") as Animation;
         anim.Play("Idle");
+
+        _turnSpeed = 0;
+
+        yield return new WaitForSeconds(0.2f);
+        _turnSpeed = turnSpeed;
 
         /*
         메소드(함수)
@@ -35,7 +44,7 @@ public class PlayerCtrl : MonoBehaviour
 
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
         transform.Translate(moveDir.normalized * Time.deltaTime * moveSpeed);
-        transform.Rotate(Vector3.up * Time.deltaTime * r * 80.0f);
+        transform.Rotate(Vector3.up * Time.deltaTime * r * _turnSpeed);
 
         PlayerAnimation(h, v);
     }

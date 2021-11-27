@@ -30,8 +30,15 @@ public class MonsterCtrl : MonoBehaviour
 
     public bool isDie = false;
 
+    private int hashTrace;
+    private int hashAttack;
+
     void Start()
     {
+        // Animator View의 HashTable의 Hash 값을 미리 추출
+        hashTrace = Animator.StringToHash("IsTrace");
+        hashAttack = Animator.StringToHash("IsAttack");
+
         monsterTr = GetComponent<Transform>();
         playerTr = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();

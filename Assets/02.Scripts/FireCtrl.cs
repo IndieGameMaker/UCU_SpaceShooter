@@ -17,6 +17,7 @@ public class FireCtrl : MonoBehaviour
         audio = GetComponent<AudioSource>();
         // MuzzleFlash에 있는 MeshRenderer 컴포넌트를 할당
         renderer = firePos.GetComponentInChildren<MeshRenderer>();
+        renderer.enabled = false;
     }
 
     // 매 프레임 마다 호출되는 메소드(함수)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterCtrl : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class MonsterCtrl : MonoBehaviour
     public Transform monsterTr;
     [HideInInspector]  //UnityEngine
     public Transform playerTr;
+
+
 
     public bool isDie = false;
 

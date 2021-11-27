@@ -57,4 +57,27 @@ public class MonsterCtrl : MonoBehaviour
             yield return new WaitForSeconds(0.3f);
         }
     }
+
+    IEnumerator MonsterAction()
+    {
+        while(!isDie) // (isDie == false)
+        {
+            switch (state)
+            {
+                case State.IDLE:
+                    Debug.Log("아이들링");
+                    break;
+                case State.TRACE:
+                    Debug.Log("추적");
+                    break;
+                case State.ATTACK:
+                    Debug.Log("공격");
+                    break;
+                case State.DIE:
+                    break;
+            }
+
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
 }

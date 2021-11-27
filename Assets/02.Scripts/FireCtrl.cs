@@ -52,6 +52,11 @@ public class FireCtrl : MonoBehaviour
         Vector2 offset = new Vector2(Random.Range(0,2), Random.Range(0,2)) * 0.5f;
         renderer.material.mainTextureOffset = offset;
 
+        // 회전처리
+        float angle = Random.Range(0.0f, 360.0f);
+        //[컴포넌트].transform
+        renderer.transform.localRotation = Quaternion.Euler(Vector3.forward * angle);
+
         // MuzzleFlash 활성화
         renderer.enabled = true;
         

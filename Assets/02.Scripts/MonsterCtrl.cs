@@ -129,5 +129,11 @@ public class MonsterCtrl : MonoBehaviour
         }
     }
 
+    void YouWin()
+    {
+        StopAllCoroutines();
+        agent.isStopped = true;
+        anim.SetTrigger("PlayerDie");
+    }
 
 }

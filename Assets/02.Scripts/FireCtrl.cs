@@ -20,6 +20,8 @@ public class FireCtrl : MonoBehaviour
         renderer.enabled = false;
     }
 
+    private RaycastHit hit;
+
     // 매 프레임 마다 호출되는 메소드(함수)
     void Update()
     {
@@ -29,6 +31,12 @@ public class FireCtrl : MonoBehaviour
         if (Input.GetMouseButtonDown(0) == true)
         {
             Fire();
+
+            if (Physics.Raycast(firePos.position, firePos.forward, out hit, 10.0f))
+            {
+                Debug.Log(hit.collider.name);
+            }
+
         }
     }
 

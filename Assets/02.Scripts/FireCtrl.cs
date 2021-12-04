@@ -23,11 +23,12 @@ public class FireCtrl : MonoBehaviour
     // 매 프레임 마다 호출되는 메소드(함수)
     void Update()
     {
+        // 광선의 시각화
+        Debug.DrawRay(firePos.position, firePos.forward * 10.0f, Color.green);
+
         if (Input.GetMouseButtonDown(0) == true)
         {
             Fire();
-            // 광선의 시각화
-            Debug.DrawRay(firePos.position, firePos.forward * 10.0f, Color.green);
         }
     }
 

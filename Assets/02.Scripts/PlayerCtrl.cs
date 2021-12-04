@@ -11,6 +11,9 @@ public class PlayerCtrl : MonoBehaviour
 
     private Animation anim;
 
+    private float initHp = 100.0f;
+    public float currHp = 100.0f;
+
     // 1회 호출되는 함수
     IEnumerator Start()
     {
@@ -79,8 +82,17 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (coll.CompareTag("PUNCH"))
         {
-            Debug.Log(coll.gameObject.name);
+            //Debug.Log(coll.gameObject.name);
+            currHp -= 10.0f;
+            if (currHp <= 0.0f)
+            {
+                PlayerDie();
+            }
         }
     }
 
+    void PlayerDie()
+    {
+        Debug.Log("주인공 사망");
+    }
 }

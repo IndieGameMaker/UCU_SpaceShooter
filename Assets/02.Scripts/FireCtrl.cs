@@ -26,6 +26,8 @@ public class FireCtrl : MonoBehaviour
         if (Input.GetMouseButtonDown(0) == true)
         {
             Fire();
+            // 광선의 시각화
+            Debug.DrawRay(firePos.position, firePos.forward * 10.0f, Color.green);
         }
     }
 
@@ -33,7 +35,7 @@ public class FireCtrl : MonoBehaviour
     {
         // 총알 생성
         // Instantiate(생성할객체, 위치, 회전각도)
-        Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        // Instantiate(bulletPrefab, firePos.position, firePos.rotation);
         // 총소리 발생
         audio.PlayOneShot(fireSfx, 0.8f);
         // 총구화염 효과

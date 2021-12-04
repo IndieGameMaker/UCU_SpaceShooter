@@ -95,8 +95,9 @@ public class PlayerCtrl : MonoBehaviour
     {
         Debug.Log("주인공 사망");
 
-        GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
-        foreach (GameObject monster in monsters)
+        var monsters = GameObject.FindGameObjectsWithTag("MONSTER");
+        
+        foreach (var monster in monsters)
         {
             monster.SendMessage("YouWin", SendMessageOptions.DontRequireReceiver);
         }

@@ -12,7 +12,7 @@ public class MonsterCtrl : MonoBehaviour
     }
     // 몬스터의 상태
     public State state = State.IDLE;
-    
+
     // 추적 사정거리
     [Range(10.0f, 50.0f)]
     public float traceDist = 10.0f;
@@ -81,7 +81,7 @@ public class MonsterCtrl : MonoBehaviour
 
     IEnumerator MonsterAction()
     {
-        while(!isDie) // (isDie == false)
+        while (!isDie) // (isDie == false)
         {
             switch (state)
             {
@@ -119,13 +119,17 @@ public class MonsterCtrl : MonoBehaviour
         if (coll.collider.CompareTag("BULLET"))
         {
             Destroy(coll.gameObject); // 총알을 삭제
-            anim.SetTrigger(hashHit);
+        }
+    }
 
-            hp -= 20.0f;
-            if (hp <= 0.0f)
-            {
-                state = State.DIE;
-            }
+    public void OnDamage(float damage)
+    {
+        anim.SetTrigger(hashHit);
+
+        hp -= damage;
+        if (hp <= 0.0f)
+        {
+            state = State.DIE;
         }
     }
 

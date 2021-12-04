@@ -32,11 +32,11 @@ public class FireCtrl : MonoBehaviour
         {
             Fire();
 
-            if (Physics.Raycast(firePos.position, firePos.forward, out hit, 10.0f))
+            if (Physics.Raycast(firePos.position, firePos.forward, out hit, 10.0f, 1 << 8)) //2^8=256
             {
-                Debug.Log(hit.collider.name);
+                //데미지를 전달
+                hit.collider.GetComponent<MonsterCtrl>().OnDamage(25.0f);
             }
-
         }
     }
 
@@ -60,7 +60,7 @@ public class FireCtrl : MonoBehaviour
     IEnumerator ShowMuzzleFlash()
     {
         // 오프셋 값 변경
-        Vector2 offset = new Vector2(Random.Range(0,2), Random.Range(0,2)) * 0.5f;
+        Vector2 offset = new Vector2(Random.Range(0, 2), Random.Range(0, 2)) * 0.5f;
         renderer.material.mainTextureOffset = offset;
 
         // 회전처리
@@ -74,7 +74,7 @@ public class FireCtrl : MonoBehaviour
 
         // MuzzleFlash 활성화
         renderer.enabled = true;
-        
+
         // 잠시 기다리는 코드
         yield return new WaitForSeconds(0.3f);
 

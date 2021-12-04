@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Singleton 싱글톤(싱글턴)
+    public static GameManager instance = null;
+
     public Transform[] points;
     public GameObject monsterPrefab;
     public float createTime = 3.0f;
 
     public bool isGameOver = false;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {

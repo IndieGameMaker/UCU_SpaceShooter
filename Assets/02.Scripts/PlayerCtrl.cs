@@ -14,9 +14,13 @@ public class PlayerCtrl : MonoBehaviour
     private float initHp = 100.0f;
     public float currHp = 100.0f;
 
+    private GameManager gameManager;
+
     // 1회 호출되는 함수
     IEnumerator Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         // Animation 컴포넌트 추출
         anim = GetComponent<Animation>(); //제너릭 문법
         //anim = GetComponent("Animation") as Animation;
@@ -93,10 +97,13 @@ public class PlayerCtrl : MonoBehaviour
 
     void PlayerDie()
     {
+        //gameManager.isGameOver = true;
+        GameManager.instance.isGameOver = true;
+
         Debug.Log("주인공 사망");
 
         var monsters = GameObject.FindGameObjectsWithTag("MONSTER");
-        
+
         foreach (var monster in monsters)
         {
             monster.SendMessage("YouWin", SendMessageOptions.DontRequireReceiver);

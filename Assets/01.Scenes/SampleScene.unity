@@ -2263,6 +2263,7 @@ MonoBehaviour:
   points: []
   monsterPrefab: {fileID: 0}
   createTime: 3
+  isGameOver: 0
 --- !u!4 &1186453033
 Transform:
   m_ObjectHideFlags: 0
